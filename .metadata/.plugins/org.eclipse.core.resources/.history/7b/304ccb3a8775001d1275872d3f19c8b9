@@ -1,0 +1,39 @@
+package moeda;
+
+public class Moeda {
+		
+		private double cotacao;
+		private String moeda;
+		private String pais;
+		private double moedaconversao;
+		
+		protected double getCotacao() {
+			return cotacao;
+		}
+		protected void setCotacao(double cotacao) {
+			this.cotacao = cotacao;
+		}
+		protected String getMoeda() {
+			return moeda;
+		}
+		protected void setMoeda(String moeda) {
+			this.moeda = moeda;
+		}
+		protected String getPais() {
+			return pais;
+		}
+		protected void setPais(String pais) {
+			this.pais = pais;
+		}
+		protected double getValor() {
+			return valor;
+		}
+		protected void setValor(double valor) {
+			this.valor = valor;
+		}
+		
+
+		
+
+
+}

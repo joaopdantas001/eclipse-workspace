@@ -1,0 +1,11 @@
+package moeda;
+
+public class TesteConversao {
+
+	public static void main(String[] args) {
+		
+		Moeda moeda = new Moeda();
+
+	}
+
+}

@@ -1,0 +1,22 @@
+package moeda;
+
+public class TesteConversao {
+
+	public static void main(String[] args) {
+		
+		Moeda moeda_usd_brz = new Moeda();
+		
+		moeda_usd_brz.setCotacao(5.12);
+		moeda_usd_brz.setMoeda("dolar");
+		moeda_usd_brz.setPais("estados unidos");
+		moeda_usd_brz.setValor(3.12);
+		
+		System.out.println("pais: " + moeda_usd_brz.getPais());
+		System.out.println("moeda: " + moeda_usd_brz.getMoeda());
+		System.out.println("cotacao: " + moeda_usd_brz.getCotacao());
+		System.out.println("reais: " + moeda_usd_brz.getValor());
+		System.out.println("convertido: " + moeda_usd_brz.getValor()*moeda_usd_brz.getCotacao());
+
+	}
+
+}

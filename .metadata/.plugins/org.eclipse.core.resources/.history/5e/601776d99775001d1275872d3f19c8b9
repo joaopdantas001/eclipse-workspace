@@ -1,0 +1,36 @@
+package moeda;
+
+public class Moeda {
+		
+		private String taxadecambiopais;
+		private String taxadecambiomoeda;
+		private String taxadecambiocodigoiso;
+		private Double taxadecambiovalor;
+
+		public String getTaxadecambiopais() {
+			return taxadecambiopais;
+		}
+		public void setTaxadecambiopais(String taxadecambiopais) {
+			this.taxadecambiopais = taxadecambiopais;
+		}
+		public String getTaxadecambiomoeda() {
+			return taxadecambiomoeda;
+		}
+		public void setTaxadecambiomoeda(String taxadecambiomoeda) {
+			this.taxadecambiomoeda = taxadecambiomoeda;
+		}
+		public String getTaxadecambiocodigoiso() {
+			return taxadecambiocodigoiso;
+		}
+		public void setTaxadecambiocodigoiso(String taxadecambiocodigoiso) {
+			this.taxadecambiocodigoiso = taxadecambiocodigoiso;
+		}
+		public Double getTaxadecambiovalor() {
+			return taxadecambiovalor;
+		}
+		public void setTaxadecambiovalor(Double taxadecambiovalor) {
+			this.taxadecambiovalor = taxadecambiovalor;
+		}
+		
+		
+}

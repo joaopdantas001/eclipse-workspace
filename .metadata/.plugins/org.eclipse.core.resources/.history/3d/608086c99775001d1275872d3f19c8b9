@@ -1,0 +1,28 @@
+package moeda;
+
+public class TesteConversao {
+
+	public static void main(String[] args) {
+		
+		Moeda a = new Moeda();
+		
+		a.setTaxadecambiocodigoiso("BRL");
+		a.setTaxadecambiomoeda("Real");
+		a.setTaxadecambiopais("Brasil");
+		a.setTaxadecambiovalor(1.0);
+		
+		Moeda b = new Moeda ();
+		
+		b.setTaxadecambiocodigoiso("USD");
+		b.setTaxadecambiomoeda("Dolar Americano");
+		b.setTaxadecambiopais("Estados Unidos");
+		b.setTaxadecambiovalor(0.19);
+	
+		ConversorMoeda ab = new ConversorMoeda();
+		
+		ab.setConversaocodigoiso(a.getTaxadecambiocodigoiso() + " x " + b.getTaxadecambiocodigoiso());
+		
+		System.out.println(ab.getConversaocodigoiso());
+	}
+
+}

@@ -1,0 +1,42 @@
+package moedaconversor;
+
+public class TesteConversao extends Moeda{
+	
+	public static void main(String[] args) {
+		
+		ConversorMoeda brl = new ConversorMoeda();
+		
+		brl.setData("07/12/2022");
+		brl.setValorparaconversao(50);
+		brl.setCodigoiso("R$");
+		brl.setNomemoeda("Real");
+		brl.set
+		brl.setPais("Brasil");
+		brl.setCambiobrl(1.0);
+		brl.setCambioeur(0.1816);
+		brl.setCambiogbp(0.1569);
+		brl.setCambiojpy(26.2075);
+		brl.setCambiousd(0.1911);
+		
+		ConversorMoeda usd = new ConversorMoeda();
+		
+		usd.setData("07/12/2022");
+		usd.setValorparaconversao(10);
+		usd.setCodigoiso("US$");
+		usd.setNomemoeda("Dólar Americano");
+		usd.setPais("Brasil");
+		us
+		usd.setCambiobrl(1.0);
+		usd.setCambioeur(0.1816);
+		usd.setCambiogbp(0.1569);
+		usd.setCambiojpy(26.2075);
+		usd.setCambiousd(0.1911);
+		
+		System.out.println(brl.getData());
+		System.out.println("     " + ""
+		System.out.println("Nome da Moeda: " + brl.getNomemoeda());
+		
+	}
+
+	
+}

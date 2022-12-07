@@ -1,0 +1,85 @@
+package moedaconversor;
+
+public class TesteConversao extends Moeda{
+	
+	public static void main(String[] args) {
+		
+		ConversorMoeda brl = new ConversorMoeda();
+		
+		brl.setData("07/12/2022");
+		brl.setValorparaconversao(10);
+		brl.setPais("Brasil");
+		brl.setNomemoeda("Real");
+		brl.setSigla("R$");
+		brl.setCodigo("BRL");
+		brl.setCambiobrl(1);
+		brl.setCambiousd(0.1911);
+		brl.setCambioeur(0.1816);
+		brl.setCambiogbp(0.1569);
+		brl.setCambiojpy(26.2075);
+		
+		
+		ConversorMoeda usd = new ConversorMoeda();
+		
+		usd.setData("07/12/2022");
+		usd.setValorparaconversao(20);
+		usd.setPais("Estados Unidos");
+		usd.setNomemoeda("Dolar Americano");
+		usd.setSigla("US$");
+		usd.setCodigo("USD");
+		usd.setCambiobrl(5.2203);
+		usd.setCambiousd(1);
+		usd.setCambioeur(0.9487);
+		usd.setCambiogbp(0.8184);
+		usd.setCambiojpy(136.56);
+		
+		ConversorMoeda eur = new ConversorMoeda();
+		
+		usd.setData("07/12/2022");
+		usd.setValorparaconversao(30);
+		usd.setPais("União Europeia");
+		usd.setNomemoeda("Euro");
+		usd.setSigla("#");
+		usd.setCodigo("EUR");
+		usd.setCambiobrl(5.5030);
+		usd.setCambiousd(1.5040);
+		usd.setCambioeur(1);
+		usd.setCambiogbp(0.8625);
+		usd.setCambiojpy(143.94);
+		
+		ConversorMoeda gbp = new ConversorMoeda();
+		
+		usd.setData("07/12/2022");
+		usd.setValorparaconversao(40);
+		usd.setPais("#");
+		usd.setNomemoeda("#");
+		usd.setSigla("#");
+		usd.setCodigo("GBP");
+		usd.setCambiobrl(6.3789);
+		usd.setCambiousd(1.2220);
+		usd.setCambioeur(1.1594);
+		usd.setCambiogbp(1);
+		usd.setCambiojpy(166.88);
+		
+		ConversorMoeda jpy = new ConversorMoeda();
+		
+		usd.setData("07/12/2022");
+		usd.setValorparaconversao(50);
+		usd.setPais("#");
+		usd.setNomemoeda("#");
+		usd.setSigla("#");
+		usd.setCodigo("JPY");
+		usd.setCambiobrl(0.03823);
+		usd.setCambiousd(0.732250);
+		usd.setCambioeur(0.69465);
+		usd.setCambiogbp(0.005995);
+		usd.setCambiojpy(1);
+		
+		System.out.println("     " + " " + brl.getCodigo() + " " + " " + usd.getCodigo() + " " + " " + eur.getCodigo() + " " + " " + gbp.getCodigo() + " " + " " + jpy.getCodigo() + " ");
+		System.out.println(" " + brl.getCodigo() + " ");
+		System.out.println(" " + usd.getCodigo() + " ");
+		
+	}
+
+	
+}
