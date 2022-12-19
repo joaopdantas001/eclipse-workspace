@@ -27,7 +27,7 @@ public class TesteConversao {
 		eur.setValorcambiousd(1.06);
 
 		ConversaoMoeda brlxeur = new ConversaoMoeda(); // objeto brlxeur ou real para euro
-		brlxeur.setQuantidade(50);
+		brlxeur.setQuantidade(20);
 		brlxeur.setValorconversao(brl.getValorcambiobrl(), brlxeur.getQuantidade(), brl.getValorcambioeur());
 
 		String brlxeurValorFormatadoQuantidade = NumberFormat.getCurrencyInstance().format(brlxeur.getQuantidade());
@@ -35,14 +35,14 @@ public class TesteConversao {
 		String brlxeurvalorFormatadoConversao = NumberFormat.getCurrencyInstance().format(brlxeur.getValorconversao());
 		// converter moeda de destino para 2 casas decimais
 
-		if (brlxeur.getQuantidade() > 0) {
+		if (brlxeur.getQuantidade() == 1 || brlxeur.getQuantidade() == 0.01) {
 			System.out
-					.print(brl.getSimbolo() + " " + brlxeurValorFormatadoQuantidade + " " + brl.getNomes() + " valem ");
+					.print(brl.getSimbolo() + " " + brlxeurValorFormatadoQuantidade + " " + brl.getNome() + " vale ");
 		} else {
-			System.out.print(brl.getSimbolo() + " " + brlxeurValorFormatadoQuantidade + " " + brl.getNome() + " vale ");
+			System.out.print(brl.getSimbolo() + " " + brlxeurValorFormatadoQuantidade + " " + brl.getNomes() + " vale ");
 		}
 
-		if (brlxeur.getValorconversao() > 0) {
+		if (brlxeur.getQuantidade() == 1 || brlxeur.getQuantidade() == 0.01) {
 			System.out.println(eur.getSimbolo() + " " + brlxeurvalorFormatadoConversao + " " + eur.getNomes());
 		} else {
 			System.out.println(eur.getSimbolo() + " " + brlxeurvalorFormatadoConversao + " " + eur.getNome());
@@ -51,7 +51,7 @@ public class TesteConversao {
 		System.out.println("----------------------------");
 
 		ConversaoMoeda eurxbrl = new ConversaoMoeda(); // objeto eur x brl ou euro para real
-		eurxbrl.setQuantidade(60);
+		eurxbrl.setQuantidade(1);
 		eurxbrl.setValorconversao(eur.getValorcambioeur(), eurxbrl.getQuantidade(), eur.getValorcambiobrl());
 
 		String eurxbrlValorFormatadoQuantidade = NumberFormat.getCurrencyInstance().format(eurxbrl.getQuantidade());
@@ -59,16 +59,16 @@ public class TesteConversao {
 		String eurxbrlvalorFormatadoConversao = NumberFormat.getCurrencyInstance().format(eurxbrl.getValorconversao());
 		// converter moeda de destino para 2 casas decimais
 
-		if (eurxbrl.getQuantidade() > 0) {
-			System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + " " + eur.getNomes() + " valem ");
+		if (eurxbrl.getQuantidade() == 1 || eurxbrl.getQuantidade() == 0.01) {
+			System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + " " + eur.getNome() + " valem ");
 		} else {
-			System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + " " + eur.getNome() + " vale ");
+			System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + " " + eur.getNomes() + " vale ");
 		}
 
-		if (eurxbrl.getValorconversao() > 0) {
-			System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao + " " + brl.getNomes());
-		} else {
+		if (eurxbrl.getQuantidade() == 1 || eurxbrl.getQuantidade() == 0.01) {
 			System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao + " " + brl.getNome());
+		} else {
+			System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao + " " + brl.getNomes());
 		}
 	}
 
