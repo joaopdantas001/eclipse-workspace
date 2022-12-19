@@ -1,9 +1,9 @@
-
+import java.text.NumberFormat;
 public class TesteConversao {
 
 	public static void main(String[] args) {
 
-		Cambio brl = new Cambio();
+		Cambio brl = new Cambio();  //objeto brl
 		
 		brl.setIso("BRL");
 		brl.setNome("Real");
@@ -13,18 +13,9 @@ public class TesteConversao {
 		brl.setValorcambioeur(0.18);
 		brl.setValorcambiojpy(25.87);
 		brl.setValorcambiousd(0.19);
+
 		
-		/*
-		 * System.out.println(brl.getIso()); System.out.println(brl.getNome());
-		 * System.out.println(brl.getSimbolo());
-		 * System.out.println(brl.getValorcambiobrl());
-		 * System.out.println(brl.getValorcambioeur());
-		 * System.out.println(brl.getValorcambiojpy());
-		 * System.out.println(brl.getValorcambiousd());
-		 * System.out.println("----------------------------");
-		 */
-		
-		Cambio eur = new Cambio() ;
+		Cambio eur = new Cambio() ; //objeto eur
 			
 		eur.setIso("EUR");
 		eur.setNome("Euro");
@@ -35,37 +26,62 @@ public class TesteConversao {
 		eur.setValorcambiojpy(145.3);
 		eur.setValorcambiousd(1.06);
 		
-		/*
-		 * System.out.println(eur.getIso()); System.out.println(eur.getNome());
-		 * System.out.println(eur.getSimbolo());
-		 * System.out.println(eur.getValorcambiobrl());
-		 * System.out.println(eur.getValorcambioeur());
-		 * System.out.println(eur.getValorcambiojpy());
-		 * System.out.println(eur.getValorcambiousd());
-		 * System.out.println("----------------------------");
-		 */
+		ConversaoMoeda brlxeur = new ConversaoMoeda(); //objeto brlxeur ou real para euro
+		brlxeur.setQuantidade(50);  
+		brlxeur.setValorconversao(brl.getValorcambiobrl(), brlxeur.getQuantidade(), 
+				brl.getValorcambioeur());
 		
-		ConversaoMoeda brlxeur = new ConversaoMoeda();
-
-		brlxeur.setQuantidade(50);
-		brlxeur.setValorconversao(brl.getValorcambiobrl(), brlxeur.getQuantidade(), brl.getValorcambioeur());
+		String brlxeurValorFormatadoQuantidade = NumberFormat.getCurrencyInstance().format(brlxeur.getQuantidade());
+		//converter moeda de origem para 2 casas decimais
+		String brlxeurvalorFormatadoConversao = NumberFormat.getCurrencyInstance().format(brlxeur.getValorconversao());
+		// converter moeda de destino para 2 casas decimais
+	
+		if (brlxeur.getQuantidade() > 0) {
+			System.out.print(brl.getSimbolo() + " " + brlxeurValorFormatadoQuantidade + 
+			" " + brl.getNomes() + " valem ");
+		}
+			else {
+				System.out.print(brl.getSimbolo() + " " + brlxeurValorFormatadoQuantidade + 
+				" " + brl.getNome() + " vale ");
+			}
 		
-
-		System.out.println(brl.getSimbolo() + " " + brlxeur.getQuantidade() + " " +
-				brl.getNome() + " valem " + eur.getSimbolo() + " " + 
-				brlxeur.getValorconversao() + 
-				" " + eur.getNome());
-		
+		if (brlxeur.getValorconversao() > 0) {
+			System.out.println(eur.getSimbolo() + " " + brlxeurvalorFormatadoConversao + 
+			" " + eur.getNomes());
+		} 
+			else {
+			System.out.println(eur.getSimbolo() + " " + brlxeurvalorFormatadoConversao + 
+			" " + eur.getNome());	
+			}
+			
 		System.out.println("----------------------------");
 		
-		ConversaoMoeda eurxbrl = new ConversaoMoeda();
-
-		eurxbrl.setQuantidade(20);
+		ConversaoMoeda eurxbrl = new ConversaoMoeda(); //objeto eur x brl ou euro para real
+		eurxbrl.setQuantidade(60);
 		eurxbrl.setValorconversao(eur.getValorcambioeur(), eurxbrl.getQuantidade(), eur.getValorcambiobrl());
 		
-		System.out.println(eur.getSimbolo() + " " + eurxbrl.getQuantidade() + " " + 
-				eur.getNome() + " valem " + brl.getSimbolo() + " " + 
-				eurxbrl.getValorconversao() + " " + brl.getNome());
+		String eurxbrlValorFormatadoQuantidade = NumberFormat.getCurrencyInstance().format(eurxbrl.getQuantidade());
+		//converter moeda de origem para 2 casas decimais
+		String eurxbrlvalorFormatadoConversao = NumberFormat.getCurrencyInstance().format(eurxbrl.getValorconversao());
+		// converter moeda de destino para 2 casas decimais
+		
+		if (eurxbrl.getQuantidade() > 0) {
+			System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + 
+			" " + eur.getNomes() + " valem ");
+		}
+			else {
+				System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + 
+				" " + eur.getNome() + " vale ");
+			}
+		
+		if (eurxbrl.getValorconversao() > 0) {
+			System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao + 
+			" " + brl.getNomes());
+		} 
+			else {
+			System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao + 
+			" " + brl.getNome());	
+			}
 	}
 
 }

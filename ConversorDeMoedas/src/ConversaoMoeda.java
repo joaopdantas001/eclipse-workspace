@@ -7,8 +7,6 @@ public class ConversaoMoeda {
 	private String moedadestinoiso;
 	private double valorconversao;
 	private double quantidade;
-	private String nome;
-	private String nomemoeda;
 	
 	protected double getMoedaorigemvalor() {
 		return moedaorigemvalor;
