@@ -8,7 +8,6 @@ public class ConversaoMoeda {
 	private String moedadestinoiso;
 	private double valorconversao;
 	private double quantidade;
-//	private String valorconversaoformatadoquantidade;
 
 	protected double getMoedaorigemvalor() {
 		return moedaorigemvalor;
