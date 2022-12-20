@@ -27,16 +27,17 @@ public class TesteConversao {
 		brl.setValorcambiojpy(25.87);
 		brl.setValorcambiousd(0.19);
 		
+		Escolha escolha = new Escolha();
+		
+		int selecaoMoeda = escolha.escolhaMoeda();
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Digite 1 para converter em Euros e 2 para converter em Reais");
-		int escolha = sc.nextInt();
-		
-		if (escolha == 1) {
+		if (selecaoMoeda == 1) { // euros
 			System.out.println("Digite quantos " + eur.getNomes() + " voce quer converter");
 			double quantidadeEur = sc.nextDouble();
 			
-			ConversaoMoeda eurxbrl = new ConversaoMoeda(); // objeto eur x brl ou euro para real
+			ConversaoMoeda eurxbrl = new ConversaoMoeda(); // objeto euro para real
 			eurxbrl.setQuantidade(quantidadeEur);
 			eurxbrl.setValorconversao(eur.getValorcambioeur(), eurxbrl.getQuantidade(), eur.getValorcambiobrl());
 			
@@ -46,22 +47,22 @@ public class TesteConversao {
 			// converter moeda de destino para 2 casas decimais
 
 			if (eurxbrl.getQuantidade() == 1 || eurxbrl.getQuantidade() == 0.01) {
-				System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade +
+				System.out.print(eur.getSimbolo() + " " + eurxbrlValorFormatadoQuantidade + 
 				" " + eur.getNome() + " valem "); } else { System.out.print(eur.getSimbolo()
 				+ " " + eurxbrlValorFormatadoQuantidade + " " + eur.getNomes() + " vale "); 
 			}
 
 			if (eurxbrl.getQuantidade() == 1 || eurxbrl.getQuantidade() == 0.01) {
-				System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao +
+				System.out.println(brl.getSimbolo() + " " + eurxbrlvalorFormatadoConversao + 
 				" " + brl.getNome()); } else { System.out.println(brl.getSimbolo() + " " +
 				eurxbrlvalorFormatadoConversao + " " + brl.getNomes()); 
 			}
 			
-		} else {
+		} else { // reais
 			System.out.println("Digite quantos " + brl.getNomes() + " voce quer converter");
 			double quantidadeBrl = sc.nextDouble();
 			
-			ConversaoMoeda brlxeur = new ConversaoMoeda(); // objeto brl x eur ou real para euro
+			ConversaoMoeda brlxeur = new ConversaoMoeda(); // objeto real para euro
 			
 			brlxeur.setQuantidade(quantidadeBrl);
 			brlxeur.setValorconversao(brl.getValorcambioeur(), brlxeur.getQuantidade(), brl.getValorcambioeur());
