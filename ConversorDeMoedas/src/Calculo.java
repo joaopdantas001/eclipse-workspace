@@ -1,16 +1,16 @@
 
 public class Calculo {
 
-	private double valorconversao;
+	private double calculoConversao;
 
-	protected void setValorconversao(double quantidade, double moedadestinovalor) {
-
-		this.valorconversao = quantidade * moedadestinovalor;
+	protected void setCalculoConversao(double quantidadeMoedaOrigem, double cambioMoedaDestino) {
+		
+		this.calculoConversao = quantidadeMoedaOrigem * cambioMoedaDestino;
 
 	}
 	
 	protected double getValorConversao() {
-		return valorconversao;
+		return calculoConversao;
 	}
 
 }

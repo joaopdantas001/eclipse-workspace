@@ -2,56 +2,48 @@ import java.util.Scanner;
 
 public class Entrada {
 
-	private int escolha;
-	private double quantidade;
+	private int escolhaMoeda;
+	private double quantidadeMoeda;
 	
 	protected int getEscolha() {
-		return escolha;
+		return escolhaMoeda;
 	}
 	
 	protected double getQuantidade() {
-		return quantidade;
+		return quantidadeMoeda;
+	}
+	
+	protected void escolhaMoeda(String nomesMoedaEur, String nomesMoedaBrl) {
+	
+		Scanner sc = new Scanner(System.in);
+		
+		while (escolhaMoeda != 1 && escolhaMoeda != 2) {
+			
+			double escolhaMoeda;
+			
+			System.out.println("Digite 1 para converter em " + nomesMoedaEur + "e 2 para converter em " + nomesMoedaBrl);
+			
+			escolhaMoeda = sc.nextDouble();
+			
+			this.escolhaMoeda = (int)escolhaMoeda;
+		}
 	}
 
-	protected void escolhaMoeda() {
-	
-		Scanner sc = new Scanner(System.in);
-			
-		while (escolha < 1 || escolha > 2) {
-		
-			System.out.println("Digite 1 para converter em Euros e 2 para converter em Reais");
-				
-			this.escolha = sc.nextInt();
-	
-		}
-		
-	}
-	
-	protected void quantidadeMoeda() {
+	protected void quantidadeMoeda(String nomesMoedaEur, String nomesMoedaBrl) {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		if (escolha == 1) {
+		if (escolhaMoeda == 1) {
 			
-			Cambio eur = new Cambio(); // objeto eur
+			System.out.println("Digite quantos " + nomesMoedaEur + " voce quer converter");
 			
-			eur.setNome("Euro");
-			eur.setNomes("Euros");
-			
-			System.out.println("Digite quantos " + eur.getNomes() + " voce quer converter");
-			
-			this.quantidade = sc.nextDouble();
+			this.quantidadeMoeda = sc.nextDouble();
 			
 		} else {
 			
-			Cambio brl = new Cambio(); // objeto brl
+			System.out.println("Digite quantos " + nomesMoedaBrl + " voce quer converter");
 			
-			brl.setNome("Real");
-			brl.setNomes("Reais");
-			
-			System.out.println("Digite quantos " + brl.getNomes() + " voce quer converter");
-			
-			this.quantidade = sc.nextDouble();
+			this.quantidadeMoeda = sc.nextDouble();
 			
 		}
 	}
