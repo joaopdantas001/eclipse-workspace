@@ -1,9 +1,18 @@
-public class Moeda {
+public class Moeda extends Cambio{
 
+	private int id;
 	private String nome;
 	private String nomes;
 	private String simbolo;
 	private String iso;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	protected String getNome() {
 		return nome;

@@ -1,40 +1,41 @@
-public class Cambio extends Moeda {
+public class Cambio 
+{
 
-	private double valorcambiobrl;
-	private double valorcambioeur;
-	private double valorcambiojpy;
-	private double valorcambiousd;
+	private double valorCambioBrl;
+	private double valorCambioEur;
+	private double valorCambioJpy;
+	private double valorCambioUsd;
 
 	protected double getValorcambiobrl() {
-		return valorcambiobrl;
+		return valorCambioBrl;
 	}
 
 	protected void setValorcambiobrl(double valorcambiobrl) {
-		this.valorcambiobrl = valorcambiobrl;
+		this.valorCambioBrl = valorcambiobrl;
 	}
 
 	protected double getValorcambioeur() {
-		return valorcambioeur;
+		return valorCambioEur;
 	}
 
 	protected void setValorcambioeur(double valorcambioeur) {
-		this.valorcambioeur = valorcambioeur;
+		this.valorCambioEur = valorcambioeur;
 	}
 
 	protected double getValorcambiojpy() {
-		return valorcambiojpy;
+		return valorCambioJpy;
 	}
 
 	protected void setValorcambiojpy(double valorcambiojpy) {
-		this.valorcambiojpy = valorcambiojpy;
+		this.valorCambioJpy = valorcambiojpy;
 	}
 
 	protected double getValorcambiousd() {
-		return valorcambiousd;
+		return valorCambioUsd;
 	}
 
 	protected void setValorcambiousd(double valorcambiousd) {
-		this.valorcambiousd = valorcambiousd;
+		this.valorCambioUsd = valorcambiousd;
 	}
 
 }

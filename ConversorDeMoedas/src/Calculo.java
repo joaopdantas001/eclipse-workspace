@@ -2,15 +2,15 @@
 public class Calculo {
 
 	private double calculoConversao;
-
-	protected void setCalculoConversao(double quantidadeMoedaOrigem, double cambioMoedaDestino) {
-		
-		this.calculoConversao = quantidadeMoedaOrigem * cambioMoedaDestino;
-
-	}
 	
-	protected double getValorConversao() {
+	public double getCalculoConversao() 
+	{
 		return calculoConversao;
 	}
+	
+	public void setCalculoConversao(double origemQuantidade, double cambioDestino) 
+	{
+		this.calculoConversao = cambioDestino * origemQuantidade;
 
+	}
 }
