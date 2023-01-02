@@ -1,6 +1,8 @@
 import java.text.NumberFormat;
 import java.util.Scanner;
 
+//		02/01/2023
+
 public class MainTesteConversao {
 	
 	public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class MainTesteConversao {
 			eur.setIso("EUR");
 			eur.setNome("Euro");
 			eur.setNomes("Euros");
-			eur.setSimbolo("EUR$");
+			eur.setSimbolo("€");
 			eur.setValorcambiobrl(5.6951);
 			eur.setValorcambioeur(1);
 			eur.setValorcambiojpy(139.3984);
@@ -35,7 +37,7 @@ public class MainTesteConversao {
 			jpy.setIso("JPY");
 			jpy.setNome("Iene");
 			jpy.setNomes("Ienes");
-			jpy.setSimbolo("JPY$");
+			jpy.setSimbolo("¥");
 			jpy.setValorcambiobrl(0.0409);
 			jpy.setValorcambioeur(0.0072);
 			jpy.setValorcambiojpy(1);
@@ -47,7 +49,7 @@ public class MainTesteConversao {
 			usd.setIso("USD");
 			usd.setNome("Dolar");
 			usd.setNomes("Dolares");
-			usd.setSimbolo("USD$");
+			usd.setSimbolo("US$");
 			usd.setValorcambiobrl(5.343);
 			usd.setValorcambioeur(0.9378);
 			usd.setValorcambiojpy(4.3);
