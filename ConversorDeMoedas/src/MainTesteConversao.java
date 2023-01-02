@@ -13,9 +13,9 @@ public class MainTesteConversao {
 			brl.setNomes("Reais");
 			brl.setSimbolo("R$");
 			brl.setValorcambiobrl(1);
-			brl.setValorcambioeur(0.18);
-			brl.setValorcambiojpy(25.87);
-			brl.setValorcambiousd(0.19);
+			brl.setValorcambioeur(0.1755);
+			brl.setValorcambiojpy(24.4738);
+			brl.setValorcambiousd(0.1871);
 		
 		Moeda eur = new Moeda(); // objeto eur
 		
@@ -24,10 +24,10 @@ public class MainTesteConversao {
 			eur.setNome("Euro");
 			eur.setNomes("Euros");
 			eur.setSimbolo("EUR$");
-			eur.setValorcambiobrl(5.60);
+			eur.setValorcambiobrl(5.6951);
 			eur.setValorcambioeur(1);
-			eur.setValorcambiojpy(145.3);
-			eur.setValorcambiousd(1.06);
+			eur.setValorcambiojpy(139.3984);
+			eur.setValorcambiousd(1.0659);
 		
 		Moeda jpy = new Moeda(); // objeto jpy
 			
@@ -36,10 +36,10 @@ public class MainTesteConversao {
 			jpy.setNome("Iene");
 			jpy.setNomes("Ienes");
 			jpy.setSimbolo("JPY$");
-			jpy.setValorcambiobrl(5.60);
-			jpy.setValorcambioeur(1);
-			jpy.setValorcambiojpy(145.3);
-			jpy.setValorcambiousd(1.06);
+			jpy.setValorcambiobrl(0.0409);
+			jpy.setValorcambioeur(0.0072);
+			jpy.setValorcambiojpy(1);
+			jpy.setValorcambiousd(0.0076);
 			
 		Moeda usd = new Moeda(); // objeto usd
 			
@@ -48,135 +48,178 @@ public class MainTesteConversao {
 			usd.setNome("Dolar");
 			usd.setNomes("Dolares");
 			usd.setSimbolo("USD$");
-			usd.setValorcambiobrl(5.60);
-			usd.setValorcambioeur(1);
-			usd.setValorcambiojpy(145.3);
-			usd.setValorcambiousd(1.06);
+			usd.setValorcambiobrl(5.343);
+			usd.setValorcambioeur(0.9378);
+			usd.setValorcambiojpy(4.3);
+			usd.setValorcambiousd(130.78);
 
 		Entrada entrada = new Entrada();
 			
 			entrada.setSelecaoMoedaOrigem(brl.getNomes(), eur.getNomes(), jpy.getNomes(), usd.getNomes());
 			
-				String origemNome = " ";
-				String origemNomes = " ";
-				String origemSimbolo = " ";
-				double origemQuantidade = 0.0;
-				String destinoNome = " ";
-				String destinoNomes = " ";
-				String destinoSimbolo = " ";
-				double cambioDestino = 0.0;
+				String moedaOrigemNome = " ";
+				String moedaOrigemNomes = " ";
+				String moedaOrigemSimbolo = " ";
 			
 				switch (entrada.getSelecaoMoedaOrigem()) 
 				{
 					
 					case 1:
-						origemNome = brl.getNome();
-						origemNomes = brl.getNomes();
-						origemSimbolo = brl.getSimbolo();
+						moedaOrigemNome = brl.getNome();
+						moedaOrigemNomes = brl.getNomes();
+						moedaOrigemSimbolo = brl.getSimbolo();
 						break;
 						
 					case 2:
-						origemNome = brl.getNome();
-						origemNomes = brl.getNomes();
-						origemSimbolo = brl.getSimbolo();
+						moedaOrigemNome = eur.getNome();
+						moedaOrigemNomes = eur.getNomes();
+						moedaOrigemSimbolo = eur.getSimbolo();
 						break;
 						
 					case 3:
-						origemNome = brl.getNome();
-						origemNomes = brl.getNomes();
-						origemSimbolo = brl.getSimbolo();
+						moedaOrigemNome = jpy.getNome();
+						moedaOrigemNomes = jpy.getNomes();
+						moedaOrigemSimbolo = jpy.getSimbolo();
 						break;
 						
 					case 4:
-						origemNome = brl.getNome();
-						origemNomes = brl.getNomes();
-						origemSimbolo = brl.getSimbolo();
+						moedaOrigemNome = usd.getNome();
+						moedaOrigemNomes = usd.getNomes();
+						moedaOrigemSimbolo = usd.getSimbolo();
 						break;
+						
 				}
 			
-			entrada.setSelecaoMoedaQuantidade(brl.getNomes(), brl.getSimbolo(),eur.getNomes(), eur.getSimbolo(),jpy.getNomes(), jpy.getSimbolo(),usd.getNomes(), usd.getSimbolo());
-				
-				origemQuantidade = entrada.getSelecaoMoedaQuantidade();
+			entrada.setMoedaOrigemQuantidade(brl.getNomes(), brl.getSimbolo(),eur.getNomes(), eur.getSimbolo(),jpy.getNomes(), jpy.getSimbolo(),usd.getNomes(), usd.getSimbolo());
 				
 			entrada.setSelecaoMoedaDestino(brl.getNomes(), eur.getNomes(), jpy.getNomes(), usd.getNomes());
 			
-				switch (entrada.getSelecaoMoedaDestino()) 
+				double origemCambioDestino = 0.0;
+				String moedaDestinoNome = " ";
+				String moedaDestinoNomes = " ";
+				String moedaDestinoSimbolo = " ";
+				
+				if(entrada.getSelecaoMoedaOrigem() == 1) 
 				{
-					case 1:
-						destinoNome = brl.getNome();
-						destinoNomes = brl.getNomes();
-						destinoSimbolo = brl.getSimbolo();
-						switch (entrada.getSelecaoMoedaOrigem()) 
-						{
-							case 1:
-								cambioDestino = brl.getValorcambiobrl();
-							case 2:
-								cambioDestino = eur.getValorcambiobrl();
-							case 3:
-								cambioDestino = jpy.getValorcambiobrl();
-							case 4:
-								cambioDestino = usd.getValorcambiobrl();
-						}
-					case 2: 
-						destinoNome = eur.getNome();
-						destinoNomes = eur.getNomes();
-						destinoSimbolo = eur.getSimbolo();
-						switch (entrada.getSelecaoMoedaOrigem()) 
-						{
-							case 1:
-								cambioDestino = brl.getValorcambioeur();
-							case 2:
-								cambioDestino = eur.getValorcambioeur();
-							case 3:
-								cambioDestino = jpy.getValorcambioeur();
-							case 4:
-								cambioDestino = usd.getValorcambioeur();
-						}
-					case 3: 
-						destinoNome = jpy.getNome();
-						destinoNomes = jpy.getNomes();
-						destinoSimbolo = jpy.getSimbolo();
-						switch (entrada.getSelecaoMoedaOrigem()) 
-						{
-							case 1:
-								cambioDestino = brl.getValorcambiojpy();
-							case 2:
-								cambioDestino = eur.getValorcambiojpy();
-							case 3:
-								cambioDestino = jpy.getValorcambiojpy();
-							case 4:
-								cambioDestino = usd.getValorcambiousd();
-						}
-					case 4: 
-						destinoNome = usd.getNome();
-						destinoNomes = usd.getNomes();
-						destinoSimbolo = usd.getSimbolo();
-						switch (entrada.getSelecaoMoedaOrigem()) 
-						{
-							case 1:
-								cambioDestino = brl.getValorcambiobrl();
-							case 2:
-								cambioDestino = eur.getValorcambioeur();
-							case 3:
-								cambioDestino = jpy.getValorcambiojpy();
-							case 4:
-								cambioDestino = usd.getValorcambiousd();
-						}
+					if(entrada.getSelecaoMoedaDestino() == 1){
+						origemCambioDestino = brl.getValorcambiobrl();
+						moedaDestinoNome = brl.getNome();
+						moedaDestinoNomes = brl.getNomes();
+						moedaDestinoSimbolo = brl.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 2){
+						origemCambioDestino = brl.getValorcambioeur();
+						moedaDestinoNome = eur.getNome();
+						moedaDestinoNomes = eur.getNomes();
+						moedaDestinoSimbolo = eur.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 3){
+						origemCambioDestino = brl.getValorcambiojpy();
+						moedaDestinoNome = jpy.getNome();
+						moedaDestinoNomes = jpy.getNomes();
+						moedaDestinoSimbolo = jpy.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 4){
+						origemCambioDestino = brl.getValorcambiousd();
+						moedaDestinoNome = usd.getNome();
+						moedaDestinoNomes = usd.getNomes();
+						moedaDestinoSimbolo = usd.getSimbolo();
+					}
 				}
-		Calculo calculo = new Calculo();
+				if(entrada.getSelecaoMoedaOrigem() == 2) 
+				{
+					if(entrada.getSelecaoMoedaDestino() == 1){
+						origemCambioDestino = eur.getValorcambiobrl();
+						moedaDestinoNome = brl.getNome();
+						moedaDestinoNomes = brl.getNomes();
+						moedaDestinoSimbolo = brl.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 2){
+						origemCambioDestino = eur.getValorcambioeur();
+						moedaDestinoNome = eur.getNome();
+						moedaDestinoNomes = eur.getNomes();
+						moedaDestinoSimbolo = eur.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 3){
+						origemCambioDestino = eur.getValorcambiojpy();
+						moedaDestinoNome = jpy.getNome();
+						moedaDestinoNomes = jpy.getNomes();
+						moedaDestinoSimbolo = jpy.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 4){
+						origemCambioDestino = eur.getValorcambiousd();
+						moedaDestinoNome = usd.getNome();
+						moedaDestinoNomes = usd.getNomes();
+						moedaDestinoSimbolo = usd.getSimbolo();
+					}
+				}
+				if(entrada.getSelecaoMoedaOrigem() == 3) 
+				{
+					if(entrada.getSelecaoMoedaDestino() == 1){
+						origemCambioDestino = jpy.getValorcambiobrl();
+						moedaDestinoNome = brl.getNome();
+						moedaDestinoNomes = brl.getNomes();
+						moedaDestinoSimbolo = brl.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 2){
+						origemCambioDestino = jpy.getValorcambioeur();
+						moedaDestinoNome = eur.getNome();
+						moedaDestinoNomes = eur.getNomes();
+						moedaDestinoSimbolo = eur.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 3){
+						origemCambioDestino = jpy.getValorcambiojpy();
+						moedaDestinoNome = jpy.getNome();
+						moedaDestinoNomes = jpy.getNomes();
+						moedaDestinoSimbolo = jpy.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 4){
+						origemCambioDestino = jpy.getValorcambiousd();
+						moedaDestinoNome = usd.getNome();
+						moedaDestinoNomes = usd.getNomes();
+						moedaDestinoSimbolo = usd.getSimbolo();
+					}
+				}
+				if(entrada.getSelecaoMoedaOrigem() == 4) 
+				{
+					if(entrada.getSelecaoMoedaDestino() == 1){
+						origemCambioDestino = usd.getValorcambiobrl();
+						moedaDestinoNome = brl.getNome();
+						moedaDestinoNomes = brl.getNomes();
+						moedaDestinoSimbolo = brl.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 2){
+						origemCambioDestino = usd.getValorcambioeur();
+						moedaDestinoNome = eur.getNome();
+						moedaDestinoNomes = eur.getNomes();
+						moedaDestinoSimbolo = eur.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 3){
+						origemCambioDestino = usd.getValorcambiojpy();
+						moedaDestinoNome = jpy.getNome();
+						moedaDestinoNomes = jpy.getNomes();
+						moedaDestinoSimbolo = jpy.getSimbolo();
+					}
+					if(entrada.getSelecaoMoedaDestino() == 4){
+						origemCambioDestino = usd.getValorcambiousd();
+						moedaDestinoNome = usd.getNome();
+						moedaDestinoNomes = usd.getNomes();
+						moedaDestinoSimbolo = usd.getSimbolo();
+					}
+				}
+				
+//				System.out.println("Moeda de Origem Selecionada: " + entrada.getSelecaoMoedaOrigem());
+//				System.out.println("Quantidade da Moeda de Origem Selecionada: " + entrada.getOrigemQuantidade());
+//				System.out.println("Moeda de Destino Selecionada: " + entrada.getSelecaoMoedaDestino());
+//				System.out.println("O Valor do Cambio de Destino é de: " + origemCambioDestino);
 			
-			calculo.setCalculoConversao(origemQuantidade, cambioDestino);
+			Calculo calculo = new Calculo();
 				
-		Saida saida = new Saida();
+				calculo.setCalculoConversao(entrada.getOrigemQuantidade(), origemCambioDestino);
 				
-			saida.setOrigemNome(origemNomes);
-			saida.setOrigemNomes(origemNomes);
-			saida.setOrigemSimbolo(origemSimbolo);
-			saida.setOrigemQuantidade(origemQuantidade);
-			saida.setDestinoNome(destinoNomes);
-			saida.setDestinoNomes(destinoNomes);
-			saida.setDestinoSimbolo(destinoSimbolo);
-			saida.setCalculoConversao(cambioDestino);
-			saida.getSaida();
+			Saida saida = new Saida();
+			
+				saida.setSaida(moedaOrigemSimbolo, entrada.getOrigemQuantidade(), moedaOrigemNomes, moedaDestinoSimbolo, calculo.getCalculoConversao(), moedaDestinoNomes);
+
 	}
 }
